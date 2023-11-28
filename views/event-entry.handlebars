@@ -1,0 +1,41 @@
+<div class="add-event">
+  <h2>
+    Add Event
+  </h2>
+  <form class="add-event-form">
+    <label for="event_title">
+    Event Title:
+    </label>
+    <br />
+    <textarea id="event_title" name="event_title" rows="2" cols="30">
+    {{event_title}}
+    </textarea>
+    <br />
+    <label for="event_description">
+    Description:
+    </label>
+    <br />
+    <textarea id="event_description" name="event_description" rows="5" cols="30">
+    {{event_description}}
+    </textarea>
+    <br />
+    <label for="date_dropdown">
+    Choose Date:
+    </label>
+    <br />
+    <select name="day" id="day">
+        <option value="1">1</option>
+    </select>
+    <br />
+    <label for="category_dropdown">
+    Choose a category:
+    </label>
+    <br />
+
+    <br />
+    <button type="submit_event" value="Submit">
+    Submit
+    </button>
+  </form>
+</div>
+<script src="/js/UPDATETHIS.js"></script>
