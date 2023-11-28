@@ -1,0 +1,28 @@
+<div class="row justify-space-between-md">
+    <div class="login-container">
+        <h2 class="page-title">Login</h2>
+
+        <!-- Login Form -->
+        <form class= "form login-form">
+            <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username-login" name="username" required>
+            </div>
+
+            <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password-login" name="password" required>
+            </div>
+            
+            <button class="btn btn-primary" type="submit">Login</button> 
+        </form>
+
+        <!-- Display Error Message -->
+        {{#if errorMessage}}
+            <p class="error-message">{{errorMessage}}</p>
+        {{/if}}
+    </div>
+
+</div>  
+
+<script src="../public/js/login.js"></script>
