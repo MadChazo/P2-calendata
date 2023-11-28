@@ -1,0 +1,38 @@
+<div class="row justify-space-between-md">
+    <div class="signup-container">
+        <h2 class="page-title">Signup</h2>
+
+        <!-- Signup Form -->
+        <form id = "form signup-form">
+            <div class="signup-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username-signup" name="username" required>
+            </div>
+            <div class="signup-form">
+                <label for="email">Email:</label>
+                <input type="text" id="email-signup" name="email" required>
+            </div>
+            <div class="signup-form">
+                <label for="password">Password:</label>
+                <input type="password" id="password-signup" name="password" required>
+            </div>
+            <div class="signup-form">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password-signup" name="confirm-password" required>
+            </div>
+            <div class="signup-form">
+                <label for="interstGroup">Select Different Interest Group Categories:</label>
+            <div class="signup-form">
+                <button class="btn btn-primary" type="submit">Signup</button>
+            </div>
+        </form>
+
+        <!-- Display Error Message -->
+        {{#if errorMessage}}
+            <p class="error-message">{{errorMessage}}</p>
+        {{/if}}
+    </div>
+
+</div>
+
+<script src="../public/js/login.js"></script>
