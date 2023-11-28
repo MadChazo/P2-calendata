@@ -1,0 +1,46 @@
+<div class="cal-head">
+  <h2>Your Calendar</h2>
+  {{! Default filter: current month, all users, all chosen categories }}
+  <p>Filter by:</p>
+  <div id="cal-dropdowns">
+    <label for="month-list">Month:</label>
+    <select name="month-list" id="month-list">
+      {{#each months as |month|}}
+        <option value="{{month}}">{{monthYear}}</option>
+      {{/each}}
+    </select>
+    <label for="user-list">Created by:</label>
+    <select name="user-list" id="user-list">
+      {{#each users as |user|}}
+        <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <label for="category-list">Category:</label>
+    <select name="category-list" id="category-list">
+      {{#each categories as |category|}}
+        <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+<div class="cal-body">
+  {{! Separates out events by day, if no events, skips that day }}
+  {{#each days as |day|}}
+    {{#if events}}
+      <h4>{{day}}, {{month}} {{date}}, {{year}}</h4>
+      {{#each events as |event|}}
+        <div class="card {{category}}">
+          <h3>{{title}}</h3>
+          <p class="start-time">Start Time: {{startTime}}</p>
+          <p class="end-time">End Time: {{endTime}}</p>
+          {{! Plan to cut off desc at 4 lines or so in case it's overly long }}
+          <p class="event-desc truncate">{{description}}</p>
+          <p class="event-category">Category: {{category}}</p>
+        </div>
+      {{/each}}
+    {{/if}}
+  {{/each}}
+</div>
+
+{{! TBA - script link }}
+<script src=""></script>
