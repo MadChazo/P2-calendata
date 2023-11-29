@@ -12,10 +12,10 @@ Defaults.init(
       autoIncrement: true
     },
     user_id: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     },
     category_id: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     }
   },
   {
