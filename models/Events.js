@@ -1,26 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Events extends Model {}
 
-User.init(
+Events.init(
   {
     // Manually define the primary key
-    user_id: {
+    event_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    first_name: {
+    title: {
       type: DataTypes.STRING
     },
-    last_name: {
+    category: {
       type: DataTypes.STRING
     },
-    password: {
+    start_date: {
       type: DataTypes.STRING
     },
-    username: {
+    end_date: {
+      type: DataTypes.STRING
+    },
+    description: {
+      type: DataTypes.STRING
+    },
+    user_id: {
       type: DataTypes.STRING
     }
   },
@@ -34,4 +40,4 @@ User.init(
   }
 );
 
-module.exports = User;
+module.exports = Events;

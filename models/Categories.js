@@ -1,26 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Categories extends Model {}
 
-User.init(
+Categories.init(
   {
     // Manually define the primary key
-    user_id: {
+    category_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    first_name: {
-      type: DataTypes.STRING
-    },
-    last_name: {
-      type: DataTypes.STRING
-    },
-    password: {
-      type: DataTypes.STRING
-    },
-    username: {
+    category: {
       type: DataTypes.STRING
     }
   },
@@ -34,4 +25,4 @@ User.init(
   }
 );
 
-module.exports = User;
+module.exports = Category;
