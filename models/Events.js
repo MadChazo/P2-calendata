@@ -18,16 +18,16 @@ Events.init(
       type: DataTypes.STRING
     },
     start_date: {
-      type: DataTypes.STRING
+      type: DataTypes.DATE
     },
     end_date: {
-      type: DataTypes.STRING
+      type: DataTypes.DATE
     },
     description: {
       type: DataTypes.STRING
     },
     user_id: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     }
   },
   {
