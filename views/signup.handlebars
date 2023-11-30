@@ -20,8 +20,14 @@
                 <label for="confirm-password">Confirm Password:</label>
                 <input type="password" id="confirm-password-signup" name="confirm-password" required>
             </div>
+            <!-- Dropdown for interest groups -->
             <div class="signup-form">
                 <label for="interstGroup">Select Different Interest Group Categories:</label>
+                <select name="interstGroup" id="interstGroup">
+                    {{#each categories as |category|}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}   
+                </select>
             <div class="signup-form">
                 <button class="btn btn-primary" type="submit">Signup</button>
             </div>
