@@ -6,7 +6,7 @@ class Categories extends Model {}
 Categories.init(
   {
     // Manually define the primary key
-    category_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,

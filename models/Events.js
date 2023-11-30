@@ -6,7 +6,7 @@ class Events extends Model {}
 Events.init(
   {
     // Manually define the primary key
-    event_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -16,6 +16,10 @@ Events.init(
     },
     category: {
       type: DataTypes.STRING,
+      references: {
+        model: 'category',
+        key: 'id',
+      },
     },
     start_date: {
       type: DataTypes.DATE,
@@ -33,7 +37,7 @@ Events.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'user_id',
+        key: 'id',
       },
     }
   },

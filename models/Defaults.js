@@ -6,7 +6,7 @@ class Defaults extends Model {}
 Defaults.init(
   {
     // Manually define the primary key
-    default_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -15,14 +15,14 @@ Defaults.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'user_id',
+        key: 'id',
       },
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
-        key: 'category_id',
+        key: 'id',
       },
     }
   },
