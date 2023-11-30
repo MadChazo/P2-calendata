@@ -26,6 +26,9 @@ Events.init(
     description: {
       type: DataTypes.STRING
     },
+    location: {
+        type: DataTypes.STRING
+      },
     user_id: {
       type: DataTypes.INTEGER
     }
