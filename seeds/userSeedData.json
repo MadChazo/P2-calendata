@@ -1,0 +1,20 @@
+[
+    {
+        "first_name": "Jake",
+        "last_name": "Statefarm",
+        "password": "password",
+        "username": "jakefromstatefarm"
+    },
+    {
+        "first_name": "Fake",
+        "last_name": "Name",
+        "password": "password",
+        "username": "user4test"
+    },
+    {
+        "first_name": "Luke",
+        "last_name": "Skywalker",
+        "password": "password",
+        "username": "droids"
+    }
+]
