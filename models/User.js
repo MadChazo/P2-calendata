@@ -12,16 +12,16 @@ User.init(
       autoIncrement: true
     },
     first_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     last_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     username: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     }
   },
   {
@@ -30,7 +30,7 @@ User.init(
     // Prevent sequelize from renaming the table
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'user',
   }
 );
 

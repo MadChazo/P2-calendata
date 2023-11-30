@@ -9,28 +9,32 @@ Events.init(
     event_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     category: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     start_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     end_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     description: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     location: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
       },
     user_id: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'user_id',
+      },
     }
   },
   {
@@ -39,7 +43,7 @@ Events.init(
     // Prevent sequelize from renaming the table
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'events',
   }
 );
 

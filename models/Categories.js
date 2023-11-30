@@ -9,10 +9,10 @@ Categories.init(
     category_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     category: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     }
   },
   {
@@ -21,7 +21,7 @@ Categories.init(
     // Prevent sequelize from renaming the table
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'categories',
   }
 );
 

@@ -32,7 +32,7 @@ Defaults.init(
     // Prevent sequelize from renaming the table
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'defaults'
   }
 );
 
