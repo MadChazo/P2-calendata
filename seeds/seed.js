@@ -12,19 +12,28 @@ const seedDatabase = async () => {
     const categories = await Categories.bulkCreate(categoriesSeedData, {
         individualHooks: true,
         returning: true,
-      });
+    });
 
     const defaults = await Defaults.bulkCreate(defaultsSeedData, {
         individualHooks: true,
         returning: true,
-      });
+    });
+
+    for (const { id } of defaults) {
+        const newDefaultCategory = await Categories.create({
+          category_id: id,
+        });
+        const newCategoryUser = await User.create({
+            user_id: id,
+        });
+    }
 
     const events = await Events.bulkCreate(eventsSeedData, {
         individualHooks: true,
         returning: true,
-      });
+    });
 
-      for (const { id } of events) {
+    for (const { id } of events) {
         const newEventCategory = await Categories.create({
           category_id: id,
         });
@@ -32,8 +41,6 @@ const seedDatabase = async () => {
             user_id: id,
           });
       }
-
-
 
     const users = await User.bulkCreate(userSeedData, {
         individualHooks: true,
