@@ -14,10 +14,10 @@ Events.init(
     title: {
       type: DataTypes.STRING,
     },
-    category: {
-      type: DataTypes.STRING,
+    category_id: {
+      type: DataTypes.INTEGER,
       references: {
-        model: 'category',
+        model: 'categories',
         key: 'id',
       },
     },

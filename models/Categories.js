@@ -25,4 +25,4 @@ Categories.init(
   }
 );
 
-module.exports = Category;
+module.exports = Categories;

@@ -1,18 +1,34 @@
 const router = require("express").Router();
-const { User, Defaults, Category, Event } = require("../models");
+const { User, Defaults, Categories, Events } = require("../models");
 
 // Generates months array from current month
 function generateMonths(date) {
   const months = [];
   for (i = 0; i < 12; i++) {
     date.setMonth(Date.now().getMonth() + i);
+    if (date.getMonth() > 11) {
+      date.setMonth(date.getMonth() - 11);
+    }
     let month = date.toLocaleString("default", { month: "long" });
     let year = date.getFullYear();
-    let monthNum = year + "-" + date.getMonth();
+    let monthNum = year + "-" + (date.getMonth() + 1);
     let monthWord = month + " " + year;
     months.push({ monthNum, monthWord });
   }
   return months;
+}
+
+function generateDays(date) {
+  const days = [];
+  for (i = 0; i < 28; i++) {
+    let newDate = new Date(date + 1000 * 60 * 60 * 24 * i);
+    let weekDay = newDate.toLocaleString("default", { weekday: "long" });
+    let month = newDate.toLocaleString("default", { month: "long" });
+    let monthDate = newDate.getDate();
+    let year = newDate.getFullYear();
+    let completeDate = weekDay + ", " + month + " " + monthDate + ", " + year;
+    days.push(completeDate);
+  }
 }
 
 // Get calendar display page
@@ -28,13 +44,13 @@ router.get("/", async (req, res) => {
     const users = dbUserData.map((user) => user.get({ plain: true }));
     const userCategories = await Defaults.findAll({
       where: { id: req.session.userID },
-      include: [{ model: Category }],
+      include: [{ model: Categories }],
     });
     const categories = userCategories.map((category) =>
       category.get({ plain: true })
     );
     const categoryIDs = categories.map((category) => category.get(id));
-    const dbEventData = await Event.findAll({
+    const dbEventData = await Events.findAll({
       where: {
         startDate: {
           [Op.between]: ["2023-11-29 00:00:00", "2023-12-29 11:59:59"],
@@ -43,6 +59,7 @@ router.get("/", async (req, res) => {
       },
     });
     const events = dbEventData.map((event) => event.get({ plain: true }));
+    const days = generateDays(Date.now());
     res.render("display", {
       currentUser,
       months,
@@ -57,3 +74,21 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/login", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
+
+router.get("/signup", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("signup");
+});
+
+module.exports = router;
