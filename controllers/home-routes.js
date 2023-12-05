@@ -1,35 +1,6 @@
 const router = require("express").Router();
 const { User, Defaults, Categories, Events } = require("../models");
-
-// Generates months array from current month
-function generateMonths(date) {
-  const months = [];
-  for (i = 0; i < 12; i++) {
-    date.setMonth(Date.now().getMonth() + i);
-    if (date.getMonth() > 11) {
-      date.setMonth(date.getMonth() - 11);
-    }
-    let month = date.toLocaleString("default", { month: "long" });
-    let year = date.getFullYear();
-    let monthNum = year + "-" + (date.getMonth() + 1);
-    let monthWord = month + " " + year;
-    months.push({ monthNum, monthWord });
-  }
-  return months;
-}
-
-function generateDays(date) {
-  const days = [];
-  for (i = 0; i < 28; i++) {
-    let newDate = new Date(date + 1000 * 60 * 60 * 24 * i);
-    let weekDay = newDate.toLocaleString("default", { weekday: "long" });
-    let month = newDate.toLocaleString("default", { month: "long" });
-    let monthDate = newDate.getDate();
-    let year = newDate.getFullYear();
-    let completeDate = weekDay + ", " + month + " " + monthDate + ", " + year;
-    days.push(completeDate);
-  }
-}
+const { generateDays, generateMonths } = require("../utils/helpers.js");
 
 // Get calendar display page
 router.get("/", async (req, res) => {
@@ -59,7 +30,7 @@ router.get("/", async (req, res) => {
       },
     });
     const events = dbEventData.map((event) => event.get({ plain: true }));
-    const days = generateDays(Date.now());
+    const days = generateDays(Date.now(), 28);
     res.render("display", {
       currentUser,
       months,

@@ -12,13 +12,13 @@
     <label for="user-list">Created by:</label>
     <select name="user-list" id="user-list">
       {{#each users as |user|}}
-        <option value="{{id}}">{{name}}</option>
+        <option value="{{id}}">{{username}}</option>
       {{/each}}
     </select>
     <label for="category-list">Category:</label>
     <select name="category-list" id="category-list">
       {{#each categories as |category|}}
-        <option value="{{id}}">{{name}}</option>
+        <option value="{{id}}">{{category}}</option>
       {{/each}}
     </select>
   </div>
@@ -27,7 +27,7 @@
   {{! Separates out events by day, if no events, skips that day }}
   {{#each days as |day|}}
     {{#if events}}
-      <h4>{{day}}, {{month}} {{date}}, {{year}}</h4>
+      <h4>{{day}}</h4>
       {{#each events as |event|}}
         <div class="card {{category}}">
           <h3>{{title}}</h3>
