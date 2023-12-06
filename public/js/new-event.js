@@ -11,22 +11,14 @@ async function newFormHandler(event) {
     const end_date = new Date(Date.parse(end_date_input));
     /// change this
     const category_id = 1;
+    const user_id = 1;
 
 
-    const response = await fetch(`/event`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            category_id,
-            start_date,
-            end_date,
-            description,
-            location
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
+    const response = await fetch("/api/events", {
+        method: "POST",
+        body: JSON.stringify({ title, description, location, start_date, end_date, category_id, user_id }),
+        headers: { "Content-Type": "application/json" },
+      });
     
     if (response.ok) {
         document.location.replace('/');
