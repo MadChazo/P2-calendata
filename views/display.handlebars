@@ -31,8 +31,8 @@
       {{#each events as |event|}}
         <div class="card {{category}}">
           <h3>{{title}}</h3>
-          <p class="start-time">Start Time: {{startTime}}</p>
-          <p class="end-time">End Time: {{endTime}}</p>
+          <p class="start-time">Start Time: {{start_date}}</p>
+          <p class="end-time">End Time: {{end_date}}</p>
           {{! Plan to cut off desc at 4 lines or so in case it's overly long }}
           <p class="event-desc truncate">{{description}}</p>
           <p class="event-category">Category: {{category}}</p>

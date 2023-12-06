@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const { User, Defaults, Categories, Events } = require("../models");
-const { generateDays, generateMonths } = require("../utils/helpers.js");
+const {
+  generateDays,
+  generateMonths,
+  getLastDayString,
+} = require("../utils/helpers.js");
 const Op = require("sequelize").Op;
 
 // Get calendar display page
@@ -23,10 +27,14 @@ router.get("/", async (req, res) => {
       category.get({ plain: true })
     );
     const categoryIDs = categories.map((category) => category.get(id));
+    const firstDateString = `${nowDate.getFullYear()}-${
+      nowDate.getMonth() + 1
+    }-${nowDate.getDate()} 00:00:00`;
+    const lastDateString = getLastDayString(nowDate);
     const dbEventData = await Events.findAll({
       where: {
         start_date: {
-          [Op.between]: ["2023-11-29 00:00:00", "2023-12-29 11:59:59"],
+          [Op.between]: [firstDateString, lastDateString],
         },
         category_id: { [Op.in]: categoryIDs },
       },
@@ -42,6 +50,36 @@ router.get("/", async (req, res) => {
       events,
       loggedIn: req.session.loggedIn,
     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/event", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("event-entry");
+});
+
+router.post("/event", async (req, res) => {
+  try {
+    if (!req.session.loggedIn) {
+      res.redirect("/login");
+      return;
+    }
+    const newEvent = await Events.create({
+      title: req.body.title,
+      category_id: req.body.category_id,
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      description: req.body.description,
+      location: req.body.location,
+      user_id: req.session.userID,
+    });
+    res.status(200).json(newEvent);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
