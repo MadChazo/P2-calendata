@@ -35,4 +35,42 @@ function generateDays(date, num) {
   return days;
 }
 
-module.exports = { generateDays, generateMonths };
+// Gets last day of a period of 28 days
+function getLastDayString(date) {
+  const lastDay = new Date();
+  if (date.getMonth() + 1 == 2 && date.getFullYear() % 4 == 0) {
+    var numDays = 29;
+  } else if (date.getMonth() + 1 == 2) {
+    var numDays = 28;
+  } else if (
+    date.getMonth() + 1 == 1 ||
+    date.getMonth() + 1 == 3 ||
+    date.getMonth() + 1 == 5 ||
+    date.getMonth() + 1 == 7 ||
+    date.getMonth() + 1 == 8 ||
+    date.getMonth() + 1 == 10 ||
+    date.getMonth() + 1 == 12
+  ) {
+    var numDays = 31;
+  } else {
+    var numDays = 30;
+  }
+  if (date.getDate() + 28 > numDays) {
+    lastDay.setDate(date.getMonth() + 28 - numDays);
+    lastDay.setMonth(date.getMonth() + 1);
+    if (date.getMonth() == 11) {
+      lastDay.setFullYear(date.getFullYear + 1);
+    } else {
+      lastDay.setFullYear(date.getFullYear());
+    }
+  } else {
+    lastDay.setDate(date.getDate() + 28);
+    lastDay.setMonth(date.getMonth());
+    lastDay.setFullYear(date.getFullYear());
+  }
+  return `${lastDay.getFullYear()}-${
+    lastDay.getMonth() + 1
+  }-${lastDay.getDate()} 11:59:59`;
+}
+
+module.exports = { generateDays, generateMonths, getLastDayString };

@@ -13,7 +13,7 @@ async function newFormHandler(event) {
     const category_id = 1;
 
 
-    const response = await fetch(`/api/users`, {
+    const response = await fetch(`/event`, {
         method: 'POST',
         body: JSON.stringify({
             title,
