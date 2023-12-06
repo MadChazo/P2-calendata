@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Defaults, Categories, Events } = require("../models");
 const { generateDays, generateMonths } = require("../utils/helpers.js");
+const Op = require("sequelize").Op;
 
 // Get calendar display page
 router.get("/", async (req, res) => {
@@ -9,8 +10,9 @@ router.get("/", async (req, res) => {
       res.redirect("/login");
       return;
     }
-    const months = generateMonths(Date.now());
-    const currentUser = await User.findbyPk(req.session.userID);
+    const nowDate = new Date();
+    const months = generateMonths(nowDate);
+    const currentUser = await User.findByPk(req.session.userID);
     const dbUserData = await User.findAll();
     const users = dbUserData.map((user) => user.get({ plain: true }));
     const userCategories = await Defaults.findAll({
@@ -23,14 +25,14 @@ router.get("/", async (req, res) => {
     const categoryIDs = categories.map((category) => category.get(id));
     const dbEventData = await Events.findAll({
       where: {
-        startDate: {
+        start_date: {
           [Op.between]: ["2023-11-29 00:00:00", "2023-12-29 11:59:59"],
         },
         category_id: { [Op.in]: categoryIDs },
       },
     });
     const events = dbEventData.map((event) => event.get({ plain: true }));
-    const days = generateDays(Date.now(), 28);
+    const days = generateDays(nowDate, 28);
     res.render("display", {
       currentUser,
       months,
