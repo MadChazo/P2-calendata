@@ -9,7 +9,7 @@ router.get("/month/:month", async (req, res) => {
       return;
     }
     const months = generateMonths(Date.now());
-    const currentUser = await User.findbyPk(req.session.userID);
+    const currentUser = await User.findByPk(req.session.userID);
     const dbUserData = await User.findAll();
     const users = dbUserData.map((user) => user.get({ plain: true }));
     const userCategories = await Defaults.findAll({
