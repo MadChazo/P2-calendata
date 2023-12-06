@@ -2,9 +2,9 @@ const sequelize = require('../config/connection');
 const { Categories, Defaults, Events, User } = require('../models');
 
 const categoriesSeedData = require('./categoriesSeedData.json');
+const userSeedData = require('./userSeedData.json');
 const defaultsSeedData = require('./defaultsSeedData.json');
 const eventsSeedData = require('./eventsSeedData.json');
-const userSeedData = require('./userSeedData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -12,6 +12,11 @@ const seedDatabase = async () => {
     const categories = await Categories.bulkCreate(categoriesSeedData, {
         individualHooks: true,
         returning: true,
+    });
+
+    const users = await User.bulkCreate(userSeedData, {
+      individualHooks: true,
+      returning: true,
     });
 
     const defaults = await Defaults.bulkCreate(defaultsSeedData, {
@@ -41,11 +46,6 @@ const seedDatabase = async () => {
             user_id: id,
           });
       }
-
-    const users = await User.bulkCreate(userSeedData, {
-        individualHooks: true,
-        returning: true,
-      });
   
     process.exit(0);
   };
