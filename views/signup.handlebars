@@ -1,53 +1,67 @@
 <div class="row justify-space-between-md">
-    <div class="signup-container">
-        <h2 class="page-title">Signup</h2>
+  <div class="signup-container">
+    <h2 class="page-title">Signup</h2>
 
-        <!-- Signup Form -->
-        <form class="form signup-form" autocomplete="off" id="form-signup-form">
-            <div class="form-group">
-                <label for="first-name-signup">First Name:</label>
-                <input class="form-input" type="text" id="first-name-signup" autocomplete="new-firstname" />
-            </div>
-            <div class="form-group">
-                <label for="last-name-signup">Last Name:</label>
-                <input class="form-input" type="text" id="last-name-signup" autocomplete="new-lastname" />
-            </div>
-            <div class="signup-form">
-                <label for="username-signup">Username:</label>
-                <input type="text" id="username-signup" name="username" required>
-            </div>
-            <div class="signup-form">
-                <label for="email-signup">Email:</label>
-                <input type="text" id="email-signup" name="email" required>
-            </div>
-            <div class="signup-form">
-                <label for="password-signup">Password:</label>
-                <input type="password" id="password-signup" name="password" required>
-            </div>
-            <div class="signup-form">
-                <label for="confirm-password-signup">Confirm Password:</label>
-                <input type="password" id="confirm-password-signup" name="confirm-password" required>
-            </div>
-            <!-- Dropdown for interest groups -->
-            <div class="signup-form">
-                <label for="interestGroup">Select Different Interest Group Categories:</label>
-                <select name="interestGroup" id="interestGroup">
-                    {{#each categories as |category|}}
-                        <option value="{{id}}">{{name}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <div class="signup-form">
-                <button class="btn btn-primary" type="submit">Signup</button>
-            </div>
-        </form>
+    <!-- Signup Form -->
+    <form class="form signup-form" autocomplete="off" id="form-signup-form">
+      <div class="form-group">
+        <label for="first-name-signup">First Name:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="first-name-signup"
+          autocomplete="new-firstname"
+        />
+      </div>
+      <div class="form-group">
+        <label for="last-name-signup">Last Name:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="last-name-signup"
+          autocomplete="new-lastname"
+        />
+      </div>
+      <div class="signup-form">
+        <label for="username-signup">Username:</label>
+        <input type="text" id="username-signup" name="username" required />
+      </div>
+      <div class="signup-form">
+        <label for="email-signup">Email:</label>
+        <input type="text" id="email-signup" name="email" required />
+      </div>
+      <div class="signup-form">
+        <label for="password-signup">Password:</label>
+        <input type="password" id="password-signup" name="password" required />
+      </div>
+      <div class="signup-form">
+        <label for="confirm-password-signup">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm-password-signup"
+          name="confirm-password"
+          required
+        />
+      </div>
+      <!-- Dropdown for interest groups -->
+      <div class="signup-form">
+        <label for="interestGroup">Select Different Interest Group Categories:</label>
+        <select name="interestGroup" id="interestGroup">
+          {{#each categories as |category|}}
+            <option value="{{id}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="signup-form">
+        <button class="btn btn-primary" type="submit">Signup</button>
+      </div>
+    </form>
 
-        <!-- Display Error Message -->
-        {{#if errorMessage}}
-            <p class="error-message">{{errorMessage}}</p>
-        {{/if}}
-    </div>
+    <!-- Display Error Message -->
+    {{#if errorMessage}}
+      <p class="error-message">{{errorMessage}}</p>
+    {{/if}}
+  </div>
 </div>
 
-<script src="/js/signup.js"></script>
-
+<script src="../public/js/signup.js"></script>
