@@ -2,12 +2,17 @@
 function generateMonths(date) {
   const months = [];
   for (i = 0; i < 12; i++) {
-    date.setMonth(Date.now().getMonth() + i);
-    if (date.getMonth() > 11) {
-      date.setMonth(date.getMonth() - 11);
+    let nextMonth = new Date(
+      date.getFullYear(),
+      date.getMonth() + i,
+      date.getDate()
+    );
+    if (nextMonth.getMonth() > 11) {
+      nextMonth.setMonth(nextMonth.getMonth() - 11);
+      nextMonth.setYear(nextMonth.getFullYear() + 1);
     }
-    let month = date.toLocaleString("default", { month: "long" });
-    let year = date.getFullYear();
+    let month = nextMonth.toLocaleString("default", { month: "long" });
+    let year = nextMonth.getFullYear();
     let monthNum = year + "-" + (date.getMonth() + 1);
     let monthWord = month + " " + year;
     months.push({ monthNum, monthWord });
@@ -27,6 +32,7 @@ function generateDays(date, num) {
     let completeDate = weekDay + ", " + month + " " + monthDate + ", " + year;
     days.push(completeDate);
   }
+  return days;
 }
 
 module.exports = { generateDays, generateMonths };
