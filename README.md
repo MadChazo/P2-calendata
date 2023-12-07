@@ -23,3 +23,9 @@ When accessing the site for the first time, you will be prompted to sign up for 
 ## License
 
 The license that applies to this project is the MIT license. For more information about this license, please see the LICENSE file in the repo, or visit https://choosealicense.com/licenses/mit/.
+
+## Credits
+
+-Course material
+-DigitalOcean, How To Use Sequelize with Node.js and MySQL, https://www.digitalocean.com/community/tutorials/how-to-use-sequelize-with-node-js-and-mysql
+-Chat GPT used to expand on error messages

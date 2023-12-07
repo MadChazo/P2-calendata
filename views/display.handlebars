@@ -17,9 +17,10 @@
     </select>
     <label for="category-list">Category:</label>
     <select name="category-list" id="category-list">
-      {{#each categories as |category|}}
-        <option value="{{id}}">{{category.category}}</option>
-      {{/each}}
+      <option value="1">Food</option>
+      <option value="2">Birthdays</option>
+      <option value="3">Pets</option>
+      <option value="4">Other</option>
     </select>
   </div>
 </div>
@@ -34,8 +35,8 @@
         <p class="start-time">Start Time: {{event.start_date}}</p>
         <p class="end-time">End Time: {{event.end_date}}</p>
         {{! Plan to cut off desc at 4 lines or so in case it's overly long }}
-        <p class="event-desc truncate">{{event.description}}</p>
-        <p class="event-category">Category: {{event.category}}</p>
+        <p class="event-desc truncate">Description: {{event.description}}</p>
+        <p class="event-category">Category: {{event.category}}</p> 
       </div>
     {{/each}}
     {{!-- {{/if}} --}}
