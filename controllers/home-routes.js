@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
     const categories = userCategories.map((category) =>
       category.get({ plain: true })
     );
-    const categoryIDs = categories.map((category) => category.get(id));
+    const categoryIDs = categories.map((category) => category.id);
     const firstDateString = `${nowDate.getFullYear()}-${
       nowDate.getMonth() + 1
     }-${nowDate.getDate()} 00:00:00`;
