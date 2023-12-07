@@ -26,20 +26,22 @@ router.get("/", async (req, res) => {
     const categories = userCategories.map((category) =>
       category.get({ plain: true })
     );
-    const categoryIDs = categories.map((category) => category.get(id));
+    const categoryIDs = categories.map((category) => category.id);
     const firstDateString = `${nowDate.getFullYear()}-${
       nowDate.getMonth() + 1
     }-${nowDate.getDate()} 00:00:00`;
     const lastDateString = getLastDayString(nowDate);
-    const dbEventData = await Events.findAll({
-      where: {
-        start_date: {
-          [Op.between]: [firstDateString, lastDateString],
-        },
-        category_id: { [Op.in]: categoryIDs },
-      },
-    });
+    // const dbEventData = await Events.findAll({
+    //   where: {
+    //     start_date: {
+    //       [Op.between]: [firstDateString, lastDateString],
+    //     },
+    //     category_id: { [Op.in]: categoryIDs },
+    //   },
+    // });
+    const dbEventData = await Events.findAll();
     const events = dbEventData.map((event) => event.get({ plain: true }));
+    console.log(events);
     const days = generateDays(nowDate, 28);
     res.render("display", {
       currentUser,

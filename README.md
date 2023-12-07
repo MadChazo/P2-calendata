@@ -18,7 +18,7 @@ N/A
 
 ## Usage
 
-When accessing the site for the first time, you will be prompted to sign up for an account. Make sure to remember your credentials! After you input the information requested, including choosing categories of events you are interested in, you will be logged in and you should see your homepage with all of the events in your chosen categories for the next 28 days.
+When accessing the site for the first time, you will be prompted to sign up for an account. Make sure to remember your credentials! After you input the information requested, including choosing categories of events you are interested in, you will be logged in and you should see your homepage with all of the events in your chosen categories for the next 28 days. You can then (theoretically) sort events by month, created
 
 ## License
 
