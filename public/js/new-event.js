@@ -2,12 +2,12 @@ async function newFormHandler(event) {
     event.preventDefault();
 
 
-        const title = document.querySelector('#event_title').value;
-        const description = document.querySelector('#event_description').value;
-        const location = document.querySelector('#event_location').value;
+        const title = document.querySelector('#event_title').value.trim();
+        const description = document.querySelector('#event_description').value.trim();
+        const location = document.querySelector('#event_location').value.trim();
         const start_date_input = document.getElementById('starttime');
         //const test = start_date_input.value;
-        
+
         // make start time a date datatype
         const start_date = start_date_input.value;
         const end_date_input = document.getElementById('endtime');
