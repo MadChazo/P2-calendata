@@ -3,14 +3,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendata</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
       <h1>Calendata</h1>
     </header>
     <nav>
-      <a href="/">Home</a>
+      <a href="/"><button>Home</button></a>
       {{#if loggedIn}}
         <button id="logout">Logout</button>
       {{else}}
@@ -21,5 +22,8 @@
       {{{body}}}
     </main>
     <footer>Copyright 2023</footer>
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>

@@ -1,0 +1,32 @@
+:root {
+  --primary: #484584;
+  --secondary: #e9efee;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: monospace;
+}
+
+h1 {
+  font-family: Monofett, monospace;
+  font-size: 75px;
+}
+
+button {
+  font-family: monospace;
+}
+
+h2 {
+  text-align: center;
+}
+
+#add-event {
+  margin: 20px 0px;
+}
+
+footer {
+  margin: 25px;
+  text-align: center;
+}
