@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Events } = require('../../models');
 
 router.post('/', async (req, res) => {
-  console.log(':::::::::::::::::',req.body)
+  //console.log(':::::::::::::::::',req.body)
 
   try {
     const newEvent = await Events.create({

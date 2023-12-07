@@ -35,8 +35,8 @@
         <p class="start-time">Start Time: {{event.start_date}}</p>
         <p class="end-time">End Time: {{event.end_date}}</p>
         {{! Plan to cut off desc at 4 lines or so in case it's overly long }}
-        <p class="event-desc truncate">{{event.description}}</p>
-        <p class="event-category">Category: {{event.category}}</p>
+        <p class="event-desc truncate">Description: {{event.description}}</p>
+        <p class="event-category">Category: {{event.category}}</p> 
       </div>
     {{/each}}
     {{!-- {{/if}} --}}
