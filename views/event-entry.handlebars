@@ -1,62 +1,69 @@
 <div class="add-event">
+  
   <h2>
     Add Event
   </h2>
-  <!-- Form with inputs to add a new event -->
-  <form class="add-event-form">
-    <!-- Text box for the event title -->
-    <label for="event_title">
-    Event Title:
-    </label>
-    <br />
-    <textarea id="event_title" name="event_title" rows="2" cols="30">
-    {{event_title}}
-    </textarea>
-    <br />
-    <label for="event_description">
-    <!-- Text box for the event description -->
-    Description:
-    </label>
-    <br />
-    <textarea id="event_description" name="event_description" rows="5" cols="30">
-    {{event_description}}
-    </textarea>
-    <br />
-    <!-- Text box for the event location -->
-    Location:
-    </label>
-    <br />
-    <textarea id="event_location" name="event_location" rows="2" cols="30">
-    {{event_location}}
-    </textarea>
-    <br />
-    <label for="date_dropdown">
-    <!-- Date picker for start date and end date, includes month/day/year and time -->
-    Choose a Date:
-    </label>
-    <br />
-    <label for="event_start_time">Event Start (date and time):</label>
-    <input type="datetime-local" id="starttime" name="starttime">
-    <br />
-    <label for="event_end_time">Event End (date and time):</label>
-    <input type="datetime-local" id="endtime" name="endtime">
-    <br />
-    <label for="category_dropdown">
-    <!-- Dropdown for category that pulls from the database -->
-    Choose a category:
-    </label>
-    <br />
-      <select id="category_options">
-        <option value="1">Food</option>
-        <option value="2">Birthdays</option>
-        <option value="3">Pets</option>
-        <option value="4">Other</option>
-      </select>
-    <br />
-    <!-- Submit button -->
-    <button type="submit_event" value="Submit">
-    Submit
-    </button>
-  </form>
+
+  <main class ="card">
+    <!-- Form with inputs to add a new event -->
+    <form class="add-event-form">
+      <!-- Text box for the event title -->
+      <label for="event_title">
+      Event Title:
+      </label>
+      <br />
+      <textarea id="event_title" name="event_title" rows="2" cols="20">
+      {{event_title}}
+      </textarea>
+      <br />
+      <label for="event_description">
+      <!-- Text box for the event description -->
+      Description:
+      </label>
+      <br />
+      <textarea id="event_description" name="event_description" rows="4" cols="20">
+      {{event_description}}
+      </textarea>
+      <br />
+      <!-- Text box for the event location -->
+      Location:
+      </label>
+      <br />
+      <textarea id="event_location" name="event_location" rows="2" cols="20">
+      {{event_location}}
+      </textarea>
+      <br />
+      <br />
+      <label for="date_dropdown">
+      <!-- Date picker for start date and end date, includes month/day/year and time -->
+      Choose a Date:
+      </label>
+      <br />
+      <label for="event_start_time">Event Start (date and time):</label>
+      <input type="datetime-local" id="starttime" name="starttime">
+      <br />
+      <label for="event_end_time">Event End (date and time):</label>
+      <input type="datetime-local" id="endtime" name="endtime">
+      <br />
+      <br />
+      <label for="category_dropdown">
+      <!-- Dropdown for category that pulls from the database -->
+      Choose a category:
+      </label>
+        <select id="category_options">
+          <option value="1">Food</option>
+          <option value="2">Birthdays</option>
+          <option value="3">Pets</option>
+          <option value="4">Other</option>
+        </select>
+      <br />
+      <br />
+      <!-- Submit button -->
+      <button type="submit_event" value="Submit">
+      Submit
+      </button>
+    </form>
+  </main>
 </div>
+
 <script src="./js/new-event.js"></script>
