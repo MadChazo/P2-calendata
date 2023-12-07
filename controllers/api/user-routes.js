@@ -24,26 +24,28 @@ router.post('/', async (req, res) => {
 
 //  Router Post Login
 router.post('/login', async (req, res) => {
+  console.log(req.body);
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Sorry, incorrect email or password. Please try again!' });
+        .json({ message: 'Sorry, incorrect username or password. Please try again!' });
       return;
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+    const validPassword = dbUserData.checkPassword(req.body.password);
+    console.log(validPassword);
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: ' Sorry, incorrect email or password. Please try again!' });
+        .json({ message: ' Sorry, incorrect username or password. Please try again!' });
       return;
     }
 
