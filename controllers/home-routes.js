@@ -64,28 +64,6 @@ router.get("/event", async (req, res) => {
   res.render("event-entry");
 });
 
-router.post("/event", async (req, res) => {
-  try {
-    if (!req.session.loggedIn) {
-      res.redirect("/login");
-      return;
-    }
-    const newEvent = await Events.create({
-      title: req.body.title,
-      category_id: req.body.category_id,
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
-      description: req.body.description,
-      location: req.body.location,
-      user_id: req.session.userID,
-    });
-    res.status(200).json(newEvent);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 router.get("/login", async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
