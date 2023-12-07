@@ -17,8 +17,6 @@ async function newFormHandler(event) {
         const user_id = userData.id;
         */
 
-
-/*
         const title = document.querySelector('#event_title').value;
         const description = document.querySelector('#event_description').value;
         const location = document.querySelector('#event_location').value;
@@ -42,13 +40,14 @@ async function newFormHandler(event) {
         } else {
                 alert('Failed to add new event');
         }
-    */
 
+/*
     await fetch('/api/events',{
         method: "POST",
         body: {"hello"},
         headers: { "Content-Type": "application/json" },
     })
+    */
 }
 
   

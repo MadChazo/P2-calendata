@@ -3,14 +3,7 @@ const { Events } = require('../../models');
 
 router.post('/', async (req, res) => {
   console.log(':::::::::::::::::',req.body)
-  console.log('************************',req.session.userID)
-  console.log(':::::::::::::::::',req.body)
-  console.log('************************',req.session.userID)
-  console.log(':::::::::::::::::',req.body)
-  console.log('************************',req.session.userID)
-  console.log(':::::::::::::::::',req.body)
-  console.log('************************',req.session.userID)
-  /*
+
   try {
     const newEvent = await Events.create({
       ...req.body,
@@ -21,8 +14,9 @@ router.post('/', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-  */
+  /*
   res.send ("OK");
+  */
 });
 
 
