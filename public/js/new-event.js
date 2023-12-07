@@ -6,7 +6,8 @@ async function newFormHandler(event) {
         const description = document.querySelector('#event_description').value;
         const location = document.querySelector('#event_location').value;
         const start_date_input = document.getElementById('starttime');
-        const test = start_date_input.value;
+        //const test = start_date_input.value;
+        
         // make start time a date datatype
         const start_date = start_date_input.value;
         const end_date_input = document.getElementById('endtime');
@@ -24,7 +25,7 @@ async function newFormHandler(event) {
         
         if (eventResponse.ok) {
             document.location.replace('/');
-            alert(category_id)
+            //alert(category_id)
         } else {
                 alert('Failed to add new event');
         }

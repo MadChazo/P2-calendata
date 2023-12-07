@@ -9,6 +9,17 @@ body {
   font-family: monospace;
 }
 
+.card {
+  margin: auto;
+  border: solid 2px;
+  color: var(--secondary);
+  padding: 10px;
+  margin-top: 10px;
+  width: 50%;
+  position: center;
+  
+}
+
 h1 {
   font-family: Monofett, monospace;
   font-size: 75px;
